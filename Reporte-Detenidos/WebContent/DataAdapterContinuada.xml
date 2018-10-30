@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter
+	class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+	<name>Data Adapter Continuada</name>
+	<driver>com.mysql.jdbc.Driver</driver>
+	<username>root</username>
+	<password></password>
+	<savePassword>true</savePassword>
+	<url>jdbc:mysql://127.0.0.1:3306/bd_reportes</url>
+	<database></database>
+	<serverAddress></serverAddress>
+	<classpath>C:\Users\pgj\Documents\PROYECTO
+		DETENIDOS\Reporte_Detenidos\WebContent\WEB-INF\lib\mysql-connector-java-5.1.44-bin.jar
+	</classpath>
+</jdbcDataAdapter>

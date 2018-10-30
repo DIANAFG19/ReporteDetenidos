@@ -1,0 +1,191 @@
+html {
+    position: relative; min-height: 100%;}
+ 
+body {
+    margin: 0 auto 100px; /* El inferior es igual al alto del footer */}
+
+@media screen and (max-width: 992px) {
+    .form-inline {
+	display: inline-block;
+	}
+}
+
+ 
+footer {
+    position: absolute; 
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    
+    }
+
+
+h3 {
+color: #CD032E;}
+
+h4 {
+color: #1653B7;}
+
+.estiloFooter{  
+	height: 100px;
+    width: 100%;
+	background-color: #222222;
+	
+	color: #FFFFFF;
+	/*border-radius: 0 0 20px 20px;*/	
+}
+
+.textoMayuscula{
+	text-transform: uppercase;
+}
+
+.anchoSelect{
+	width: 100%;
+}
+
+.campo {
+	width: 135px; 
+	height: 36px;	
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.campoSombra {
+	width: 135px; 
+	height: 36px;	
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: #e3e5e8;
+}
+
+.campo2 {
+	width: 90px; 
+	height: 36px;	
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.campo3 {
+	width: 300px; 
+	height: 36px;
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.campo4 {
+	width: 40px; 
+	height: 36px;	
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.campo5 {
+	width: 80px; 
+	height: 36px;
+}
+
+.centrarT {
+	text-align: center;
+}
+
+.centrarVertical {
+    display: inline;
+    align-items: center;
+    text-align: center;
+}
+
+.centerImg {
+    display: block;
+	margin: 0 auto 
+}
+
+.white{
+color: #FFFFFF;
+}
+
+
+.section_title {
+    margin: 0 0 1em;
+}
+
+.justificado{
+	text-align: justify;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+body {
+	padding-top: 80px;
+}
+nav {
+	height: 70px;
+  .navbar-brand {font-size: 30px;}
+	.navbar-toggle {margin: 13px 15px 13px 0;}
+	a {
+		font-size: 18px;
+		padding-bottom: 20px !important;
+		padding-top: 20px !important;
+    transition: all 0.3s ease;
+    
+	}
+}
+nav.navbar.shrink {
+	min-height: 35px;
+  .navbar-brand {font-size: 25px;}
+  a {
+    font-size: 15px;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+  }
+  .navbar-toggle {
+    margin: 8px 15px 8px 0;
+    padding: 4px 5px;
+  }
+}
+
+
+@media screen and (max-width: 993px) {
+    .fondoOpinionForm{
+  border-radius: 20px 20px 20px 20px;
+  background: linear-gradient(#f4f4f4, #FFFFFF);
+  width: 100%;
+}
+}
+
+@media screen and (min-width: 992px) {
+    .fondoOpinionForm{
+  border-radius: 20px 20px 20px 20px;
+  background: linear-gradient(#f4f4f4, #FFFFFF);
+  width: 300px;
+}
+}
+
+
+#tablaReportes {
+     overflow: scroll;
+     height: 450px;
+     width: 100%;
+     border-style: groove;
+     border-width: 1px;
+} 
+
+.letraNegrita{
+	font-weight:bold;	
+}
+
+.positionRight{
+	position: absolute;
+	right: 20px;
+}
+
+.sizeButton{
+	font-size: x-large;
+}
