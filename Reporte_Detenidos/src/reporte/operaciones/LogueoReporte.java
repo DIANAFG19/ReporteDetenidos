@@ -18,7 +18,7 @@ public class LogueoReporte {
 	
 	public LogueoReporte() {
 		driver = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://172.33.31.45:3306/bd_reportes";
+		url = "jdbc:mysql://127.0.0.1:3306/bd_reportes";
 		usr = "root";
 		pass = "";
 	}
