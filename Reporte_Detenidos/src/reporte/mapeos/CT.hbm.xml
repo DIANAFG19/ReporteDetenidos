@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.CT" table="CT">
+		<id name="idCT" column="Id_CT" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="tipoCT" column="Tipo_CT" type="string"/>
+	</class>
+</hibernate-mapping>

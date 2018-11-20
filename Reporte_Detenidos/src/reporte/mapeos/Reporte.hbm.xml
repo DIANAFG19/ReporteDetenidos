@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.Reporte" table="Reporte">
+		<id name="idReporte" column="Id" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="carpetaInvestigacion" column="Carpeta_Investigacion" type="string"/>		
+		<property name="hora" column="Hora" type="string"/>		
+		<property name="fechaInicio" column="Fecha_Inicio" type="string"/>
+		
+		<property name="lugarHechos" column="Lugar_Hechos" type="string"/>
+		<property name="probableResponsable" column="Probable_Responsable" type="string"/>
+		<property name="denunciante" column="Denunciante" type="string"/>
+		<property name="descripcion" column="Descripcion" type="string"/>		
+		<property name="fecha" column="Fecha" type="string"/>
+		<property name="masculino" column="M" type="int"/>
+		<property name="femenino" column="F" type="int"/>
+		
+		
+		<property name="fiscalia" column="Fiscalia" type="string"/>
+		<property name="coord" column="Coord" type="string"/>
+		<property name="conDetenido" column="Con_Detenido" type="string"/>
+		<property name="folio" column="Folio" type="string"/>
+		<property name="mes" column="Mes" type="string"/>
+		<property name="anhio" column="Anhio" type="string"/>
+		<property name="bis" column="Bis" type="string"/>
+		<property name="relacionada" column="Relacionada" type="string"/>
+		
+		<property name="idCTFK" column="CT_Id_CT" type="int"/>		
+		<property name="idDelitoFK" column="Delito_Id_Delito" type="int"/>
+		<property name="idTramiteFK" column="Tramite_Id_Tramite" type="int"/>
+		<property name="idRemiteFK" column="Remite_Id_Remite" type="int"/>
+		<property name="turno" column="Turno" type="string"/>
+		
+		<property name="tieneAntecedentes" column="Tiene_Antecedentes" type="string"/>
+		<property name="totalImputados" column="Total_Imputados" type="int"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.Antecedentes" table="Antecedentes">
+		<id name="idAntecedentes" column="Id_Antecedentes" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="tipoAntecedentes" column="Tipo_Antecedentes" type="string"/>
+	</class>
+</hibernate-mapping>

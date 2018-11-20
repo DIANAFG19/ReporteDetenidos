@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.Genero" table="Genero">
+		<id name="idGenero" column="Id_Genero" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="tipoGenero" column="Tipo_Genero" type="string"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.Remite" table="Remite">
+		<id name="idRemite" column="Id_Remite" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="tipoRemite" column="Tipo_Remite" type="string"/>
+	</class>
+</hibernate-mapping>

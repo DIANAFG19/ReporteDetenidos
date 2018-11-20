@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.Delito" table="Delito">
+		<id name="idDelito" column="Id_Delito" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="tipoDelito" column="Tipo_Delito" type="string"/>
+	</class>
+</hibernate-mapping>

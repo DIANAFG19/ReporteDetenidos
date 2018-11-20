@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="reporte.objetos.Turno" table="Turno">
+		<id name="idTurno" column="Id_Turno" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="tipoTurno" column="Tipo_Turno" type="string"/>
+	</class>
+</hibernate-mapping>
