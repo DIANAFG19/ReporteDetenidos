@@ -27,6 +27,8 @@
 <script src="<c:url value="/recursos/tableExport/jspdf/jspdf.js"/>"></script>
 <script src="<c:url value="/recursos/tableExport/jspdf/libs/base64.js"/>"></script>
 
+<!-- Modificar campos -->
+
 <meta http-equiv="Content-Type" name="viewport" content="text/html; charset=ISO-8859-1, width=device-width, initial-scale=1">
 <title>Tramitar reporte</title>
 </head>
