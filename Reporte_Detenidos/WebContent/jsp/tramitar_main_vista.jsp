@@ -135,6 +135,7 @@
 	       		<td class="text-center"><strong>FECHA</strong></td>
 	       		<td class="text-center"><strong>TURNO</strong></td>
 	       		<th class="text-center"></th>
+	       		<th class="text-center"></th>
 	       		
 	       	</tr>
 	       	
@@ -160,6 +161,7 @@
 	       		<td class="text-center"><%if(rs.getString("Fecha")==null){out.println("");} else{out.println(rs.getString("Fecha"));}%></td>
 	       		<td class="text-center"><%if(rs.getString("Turno")==null){out.println("");} else{out.println(rs.getString("Turno"));}%></td>
 	       		<th class="text-center"><a class="btn btn-warning btn-sm" href="editar_main?id=<%=rs.getInt("Id")%>">Dar Trámite</a></th>
+	        	<th class="text-center"><a class="btn btn-warning btn-sm" href="editar_main?id=<%=rs.getInt("Id")%>">Modificar</a></th>
 	        </tr>
 	       	 <%}%> 
            </table></div><br>
