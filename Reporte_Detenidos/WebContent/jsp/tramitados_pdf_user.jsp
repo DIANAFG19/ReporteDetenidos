@@ -36,7 +36,7 @@
 	try{
 		//Conexion a la BD MySQL
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://172.33.31.45:3306/bd_reportes?user=root&password=");
+		conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bd_reportes?user=root&password=");
 		
 		//Cargando el archivo Jasper Report del archivo local del sistema
 		String jrxmlFile = session.getServletContext().getRealPath("/reporte_tramitados_user.jrxml");

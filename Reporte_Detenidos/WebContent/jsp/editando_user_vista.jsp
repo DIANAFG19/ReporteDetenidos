@@ -39,7 +39,7 @@ function start(){
 <%
 	//Conectando a la base de datos
 	Connection con;
-	String url="jdbc:mysql://172.33.31.45:3306/bd_reportes";
+	String url="jdbc:mysql://127.0.0.1:3306/bd_reportes";
 	String Driver="com.mysql.jdbc.Driver";
 	String user="root";
 	String clave="";

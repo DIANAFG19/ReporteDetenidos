@@ -5,7 +5,7 @@
 		com.mysql.jdbc.Driver
 		</property>
 		<property name="hibernate.connection.url">
-		jdbc:mysql://172.33.31.45:3306/bd_reportes
+		jdbc:mysql://127.0.0.1:3306/bd_reportes
 		</property>
 		<property name="hibernate.connection.username">
 		root
