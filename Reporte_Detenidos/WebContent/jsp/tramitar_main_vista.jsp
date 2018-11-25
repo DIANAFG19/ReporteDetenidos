@@ -27,7 +27,8 @@
 <script src="<c:url value="/recursos/tableExport/jspdf/jspdf.js"/>"></script>
 <script src="<c:url value="/recursos/tableExport/jspdf/libs/base64.js"/>"></script>
 
-<!-- Modificar campos -->
+<!-- Modificar campos  -->
+<script type="text/javascript" src="/recursos/js/myJS/table_script.js"></script>
 
 <meta http-equiv="Content-Type" name="viewport" content="text/html; charset=ISO-8859-1, width=device-width, initial-scale=1">
 <title>Tramitar reporte</title>
@@ -163,7 +164,7 @@
 	       		<td class="text-center"><%if(rs.getString("Fecha")==null){out.println("");} else{out.println(rs.getString("Fecha"));}%></td>
 	       		<td class="text-center"><%if(rs.getString("Turno")==null){out.println("");} else{out.println(rs.getString("Turno"));}%></td>
 	       		<th class="text-center"><a class="btn btn-warning btn-sm" href="editar_main?id=<%=rs.getInt("Id")%>">Dar Trámite</a></th>
-	        	<th class="text-center"><a class="btn btn-warning btn-sm" href="editar_main?id=<%=rs.getInt("Id")%>">Modificar</a></th>
+	        	<th class="text-center"><a class="btn btn-warning btn-sm" onclick="edit_row('1');">Modificar</a></th>
 	        </tr>
 	       	 <%}%> 
            </table></div><br>

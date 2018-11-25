@@ -77,6 +77,12 @@ public class ControladorRegistrar {
 	public ModelAndView clickEditar() {
 		return new ModelAndView("/editando_main_vista");
 	}
+	
+	//Líneas para modificar datos del reporte (Mapeo)
+	@RequestMapping("modificar_main")
+	public ModelAndView clickModificar() {
+		return new ModelAndView("/modificar_main");
+	}
 
 	@RequestMapping("editar_user")
 	public ModelAndView clickEditarUser() {
