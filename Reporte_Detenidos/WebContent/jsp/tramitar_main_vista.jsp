@@ -37,14 +37,34 @@
 			var nodoTr = nodoTd.parentNode; //Nodo TR
 			var nodoContenedorForm = document.getElementById('contenedorForm'); //Nodo DIV
 			var nodosEnTr = nodoTr.getElementsByTagName('td');
-			var alimento = nodosEnTr[0].textContent; var calorias = nodosEnTr[1].textContent;
-			var grasas = nodosEnTr[2].textContent; var proteina = nodosEnTr[3].textContent;
-			var carbohidratos = nodosEnTr[4].textContent; var opciones = nodosEnTr[5].textContent;
-			var nuevoCodigoHtml = '<td><input type="text" name="alimento" id="alimento" value="'+alimento+'" size="10"></td>'+
-			'<td><input type="text" name="calorias" id="calorias" value="'+calorias+'" size="5"</td>'+
-			'<td><input type="text" name="grasas" id="grasas" value="'+grasas+'" size="5"</td>'+
-			'<td><input type="text" name="proteina" id="proteina" value="'+proteina+'" size="5"</td>'+
-			'<td><input type="text" name="carbohidratos" id="carbohidratos" value="'+carbohidratos+'" size="5"</td> <td>En edición</td>';
+			var numero = nodosEnTr[0].textContent; 
+			var ct = nodosEnTr[1].textContent;
+			var carpetaInvestigacion = nodosEnTr[2].textContent; 
+			var hora = nodosEnTr[3].textContent;
+			var fechaInicio = nodosEnTr[4].textContent; 
+			var delito = nodosEnTr[5].textContent;
+			var lugarHechos = nodosEnTr[6].textContent; 
+			var remite = nodosEnTr[7].textContent;
+			var imputados = nodosEnTr[8].textContent; 
+			var descripcionHechos = nodosEnTr[9].textContent;
+			var tramite = nodosEnTr[10].textContent; 
+			var antecedentes = nodosEnTr[11].textContent;
+			var fecha = nodosEnTr[12].textContent; 
+			var turno = nodosEnTr[13].textContent;
+			var nuevoCodigoHtml = '<td><input type="text" name="numero" id="numero" value="'+numero+'" size="10"></td>'+
+			'<td><input type="text" name="ct" id="ct" value="'+ct+'" size="5"</td>'+
+			'<td><input type="text" name="carpetaInvestigacion" id="carpetaInvestigacion" value="'+carpetaInvestigacion+'" size="5"</td>'+
+			'<td><input type="text" name="hora" id="hora" value="'+hora+'" size="5"</td>'+
+			'<td><input type="text" name="fechaInicio" id="fechaInicio" value="'+fechaInicio+'" size="5"</td>'+
+			'<td><input type="text" name="delito" id="delito" value="'+delito+'" size="5"</td>'+
+			'<td><input type="text" name="lugarHechos" id="lugarHechos" value="'+lugarHechos+'" size="5"</td>'+
+			'<td><input type="text" name="remite" id="remite" value="'+remite+'" size="5"</td>'+
+			'<td><input type="text" name="imputados" id="imputados" value="'+imputados+'" size="5"</td>'+
+			'<td><input type="text" name="descripcionHechos" id="descripcionHechos" value="'+descripcionHechos+'" size="5"</td>'+
+			'<td><input type="text" name="tramite" id="tramite" value="'+tramite+'" size="5"</td>'+
+			'<td><input type="text" name="antecedentes" id="antecedentes" value="'+antecedentes+'" size="5"</td>'+
+			'<td><input type="text" name="fecha" id="fecha" value="'+fecha+'" size="5"</td>'+
+			'<td><input type="text" name="turno" id="turno" value="'+turno+'" size="5"</td> <td>En edición</td>';
 			nodoTr.innerHTML = nuevoCodigoHtml;
 			nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
 			'<form name = "formulario" action="http://aprenderaprogramar.com" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
@@ -211,7 +231,8 @@
 	       	 <%}%> 
            </table></div><br>
            <%} %>
-
+           <div id="contenedorForm">
+		</div>
 	</div>
  </div>
 </div>
