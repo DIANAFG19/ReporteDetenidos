@@ -45,29 +45,35 @@
 			var delito = nodosEnTr[5].textContent;
 			var lugarHechos = nodosEnTr[6].textContent; 
 			var remite = nodosEnTr[7].textContent;
-			var imputados = nodosEnTr[8].textContent; 
-			var descripcionHechos = nodosEnTr[9].textContent;
-			var tramite = nodosEnTr[10].textContent; 
-			var antecedentes = nodosEnTr[11].textContent;
-			var fecha = nodosEnTr[12].textContent; 
-			var turno = nodosEnTr[13].textContent;
-			var nuevoCodigoHtml = '<td><input type="text" name="numero" id="numero" value="'+numero+'" size="10"></td>'+
+			var imputados = nodosEnTr[8].textContent;
+			var sexoM = nodosEnTr[9].textContent;
+			var sexoF = nodosEnTr[10].textContent; 
+			var denunciante = nodosEnTr[11].textContent;
+			var descripcionHechos = nodosEnTr[12].textContent;
+			var tramite = nodosEnTr[13].textContent; 
+			var antecedentes = nodosEnTr[14].textContent;
+			var fecha = nodosEnTr[15].textContent; 
+			var turno = nodosEnTr[16].textContent;
+			var nuevoCodigoHtml = '<td><input type="text" name="numero" id="numero" value="'+numero+'" size="5"></td>'+
 			'<td><input type="text" name="ct" id="ct" value="'+ct+'" size="5"</td>'+
-			'<td><input type="text" name="carpetaInvestigacion" id="carpetaInvestigacion" value="'+carpetaInvestigacion+'" size="5"</td>'+
+			'<td><input type="text" name="carpetaInvestigacion" id="carpetaInvestigacion" value="'+carpetaInvestigacion+'" size="10"</td>'+
 			'<td><input type="text" name="hora" id="hora" value="'+hora+'" size="5"</td>'+
-			'<td><input type="text" name="fechaInicio" id="fechaInicio" value="'+fechaInicio+'" size="5"</td>'+
-			'<td><input type="text" name="delito" id="delito" value="'+delito+'" size="5"</td>'+
-			'<td><input type="text" name="lugarHechos" id="lugarHechos" value="'+lugarHechos+'" size="5"</td>'+
+			'<td><input type="text" name="fechaInicio" id="fechaInicio" value="'+fechaInicio+'" size="7"</td>'+
+			'<td><input type="text" name="delito" id="delito" value="'+delito+'" size="20"</td>'+
+			'<td><input type="text" name="lugarHechos" id="lugarHechos" value="'+lugarHechos+'" size="50"</td>'+
 			'<td><input type="text" name="remite" id="remite" value="'+remite+'" size="5"</td>'+
-			'<td><input type="text" name="imputados" id="imputados" value="'+imputados+'" size="5"</td>'+
-			'<td><input type="text" name="descripcionHechos" id="descripcionHechos" value="'+descripcionHechos+'" size="5"</td>'+
-			'<td><input type="text" name="tramite" id="tramite" value="'+tramite+'" size="5"</td>'+
-			'<td><input type="text" name="antecedentes" id="antecedentes" value="'+antecedentes+'" size="5"</td>'+
+			'<td><input type="text" name="imputados" id="imputados" value="'+imputados+'" size="40"</td>'+
+			'<td><input type="text" name="sexoM" id="sexoM" value="'+sexoM+'" size="5"</td>'+
+			'<td><input type="text" name="sexoF" id="sexoF" value="'+sexoF+'" size="5"</td>'+
+			'<td><input type="text" name="denunciante" id="denunciante" value="'+denunciante+'" size="30"</td>'+
+			'<td><input type="text" name="descripcionHechos" id="descripcionHechos" value="'+descripcionHechos+'" size="50"</td>'+
+			'<td><input type="text" name="tramite" id="tramite" value="'+tramite+'" size="20"</td>'+
+			'<td><input type="text" name="antecedentes" id="antecedentes" value="'+antecedentes+'" size="40"</td>'+
 			'<td><input type="text" name="fecha" id="fecha" value="'+fecha+'" size="5"</td>'+
 			'<td><input type="text" name="turno" id="turno" value="'+turno+'" size="5"</td> <td>En edición</td>';
 			nodoTr.innerHTML = nuevoCodigoHtml;
 			nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
-			'<form name = "formulario" action="http://aprenderaprogramar.com" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
+			'<form name = "formulario" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
 			'<input class="boton" type = "submit" value="Aceptar"> <input class="boton" type="reset" value="Cancelar">';
 			editando = "true";
 		}
@@ -78,12 +84,24 @@
 	function capturarEnvio(){
 		var nodoContenedorForm = document.getElementById('contenedorForm'); //Nodo DIV
 		nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
-		'<form name = "formulario" action="http://aprenderaprogramar.com" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
-		'<input type="hidden" name="alimento" value="'+document.querySelector('#alimento').value+'">'+
-		'<input type="hidden" name="calorias" value="'+document.querySelector('#calorias').value+'">'+
-		'<input type="hidden" name="grasas" value="'+document.querySelector('#grasas').value+'">'+
-		'<input type="hidden" name="proteina" value="'+document.querySelector('#proteina').value+'">'+
-		'<input type="hidden" name="carbohidratos" value="'+document.querySelector('#carbohidratos').value+'">'+
+		'<form name = "formulario" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
+		'<input type="hidden" name="numero" value="'+document.querySelector('#numero').value+'">'+
+		'<input type="hidden" name="ct" value="'+document.querySelector('#ct').value+'">'+
+		'<input type="hidden" name="carpetaInvestigacion" value="'+document.querySelector('#carpetaInvestigacion').value+'">'+
+		'<input type="hidden" name="hora" value="'+document.querySelector('#hora').value+'">'+
+		'<input type="hidden" name="fechaInicio" value="'+document.querySelector('#fechaInicio').value+'">'+
+		'<input type="hidden" name="delito" value="'+document.querySelector('#delito').value+'">'+
+		'<input type="hidden" name="lugarHechos" value="'+document.querySelector('#lugarHechos').value+'">'+
+		'<input type="hidden" name="remite" value="'+document.querySelector('#remite').value+'">'+
+		'<input type="hidden" name="imputados" value="'+document.querySelector('#imputados').value+'">'+
+		'<input type="hidden" name="sexoM" value="'+document.querySelector('#sexoM').value+'">'+
+		'<input type="hidden" name="sexoF" value="'+document.querySelector('#sexoF').value+'">'+
+		'<input type="hidden" name="denunciante" value="'+document.querySelector('#denunciante').value+'">'+
+		'<input type="hidden" name="descripcionHechos" value="'+document.querySelector('#descripcionHechos').value+'">'+
+		'<input type="hidden" name="tramite" value="'+document.querySelector('#tramite').value+'">'+
+		'<input type="hidden" name="antecedentes" value="'+document.querySelector('#antecedentes').value+'">'+
+		'<input type="hidden" name="fecha" value="'+document.querySelector('#fecha').value+'">'+
+		'<input type="hidden" name="turno" value="'+document.querySelector('#turno').value+'">'+
 		'<input class="boton" type = "submit" value="Aceptar"> <input class="boton" type="reset" value="Cancelar">';
 		document.formulario.submit();
 	}
