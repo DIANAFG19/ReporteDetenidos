@@ -55,11 +55,72 @@
 			var fecha = nodosEnTr[15].textContent; 
 			var turno = nodosEnTr[16].textContent;
 			var nuevoCodigoHtml = '<td><input type="text" name="numero" id="numero" value="'+numero+'" size="5"></td>'+
-			'<td><input type="text" name="ct" id="ct" value="'+ct+'" size="5"</td>'+
+			'<td><select name="ct" selected="'+ct+'">'+
+				'<option value="1">GAM-1</option>'+
+				'<option value="2">GAM-2</option>'+
+				'<option value="3">GAM-3</option>'+
+				'<option value="4">GAM-4</option>'+
+				'<option value="5">GAM-5</option>'+
+				'<option value="6">GAM-6</option>'+
+				'<option value="7">GAM-7</option>'+
+				'<option value="8">GAM-8</option>'+
+				'<option value="9">H-5</option>'+						
+				'</select></td>'+
 			'<td><input type="text" name="carpetaInvestigacion" id="carpetaInvestigacion" value="'+carpetaInvestigacion+'" size="10"</td>'+
 			'<td><input type="text" name="hora" id="hora" value="'+hora+'" size="5"</td>'+
 			'<td><input type="text" name="fechaInicio" id="fechaInicio" value="'+fechaInicio+'" size="7"</td>'+
-			'<td><input type="text" name="delito" id="delito" value="'+delito+'" size="20"</td>'+
+			'<td><select name="delito" selected="'+delito+'">'+
+				'<option value="1">ABANDONO DE PERSONAS</option>'+
+				'<option value="2">ABORTO</option>'+
+				'<option value="3">ABUSO DE AUTORIDAD</option>'+
+				'<option value="4">ABUSO DE CONFIANZA</option>'+
+				'<option value="5">ALLANAMIENTO DE MORADA</option>'+
+				'<option value="6">ATAQUE A LAS VÍAS DE COMUNICACIÓN</option>'+
+				'<option value="7">COALICIÓN DE SERVIDORES PÚBLICOS</option>'+
+				'<option value="8">COHECHO</option>'+
+				'<option value="9">DAÑO EN PROPIEDAD AJENA</option>'+
+				'<option value="10">ABANDONO DE PERSONAS</option>'+
+				'<option value="11">ABORTO</option>'+
+				'<option value="12">ABUSO DE AUTORIDAD</option>'+
+				'<option value="13">ABUSO DE CONFIANZA</option>'+
+				'<option value="14">ALLANAMIENTO DE MORADA</option>'+
+				'<option value="15">ATAQUE A LAS VÍAS DE COMUNICACIÓN</option>'+
+				'<option value="16">COALICIÓN DE SERVIDORES PÚBLICOS</option>'+
+				'<option value="17">COHECHO</option>'+
+				'<option value="18">DAÑO EN PROPIEDAD AJENA</option>'+
+				'<option value="19">DAÑO EN PROPIEDAD AJENA POR TRANSITO VEHICULAR</option>'+
+				'<option value="20">DENUNCIA DE HECHOS</option>'+
+				'<option value="21">DISPARO DE ARMA DE FUEGO</option>'+
+				'<option value="22">ENCUBRIMIENTO</option>'+
+				'<option value="23">ENCUBRIMIENTO POR RECEPTACION</option>'+
+				'<option value="24">EVASIÓN DE PRESOS</option>'+
+				'<option value="25">EXTORSIÓN</option>'+
+				'<option value="26">FALSEDAD EN DECLARACIONES JUD. Y EN INFORMES DADOS A UNA AUT.</option>'+
+				'<option value="27">FALSIFICACIÓN DE DOCUMENTOS EN GENERAL</option>'+
+				'<option value="28">FRAUDE</option>'+
+				'<option value="29">HOMICIDIO DOLOSO POR ARMA BLANCA</option>'+
+				'<option value="30">HOMICIDIO DOLOSO POR D.A.F.</option>'+
+				'<option value="31">HOMICIDIO CULPOSO</option>'+
+				'<option value="32">LESIONES CULPOSAS</option>'+
+				'<option value="33">LESIONES DOLOSAS</option>'+
+				'<option value="34">COALICIÓN DE SERVIDORES PÚBLICOS</option>'+
+				'<option value="35">COHECHO</option>'+
+				'<option value="36">DAÑO EN PROPIEDAD AJENA</option>'+
+				'<option value="37">ABANDONO DE PERSONAS</option>'+
+				'<option value="38">ABORTO</option>'+
+				'<option value="39">ABUSO DE AUTORIDAD</option>'+
+				'<option value="40">ABUSO DE CONFIANZA</option>'+
+				'<option value="41">ALLANAMIENTO DE MORADA</option>'+
+				'<option value="42">ATAQUE A LAS VÍAS DE COMUNICACIÓN</option>'+
+				'<option value="43">COALICIÓN DE SERVIDORES PÚBLICOS</option>'+
+				'<option value="44">COHECHO</option>'+
+				'<option value="45">DAÑO EN PROPIEDAD AJENA</option>'+
+				'<option value="46">ABANDONO DE PERSONAS</option>'+
+				'<option value="47">ABORTO</option>'+
+				'<option value="48">ABUSO DE AUTORIDAD</option>'+
+				'<option value="49">ABUSO DE CONFIANZA</option>'+
+				'<option value="50">ALLANAMIENTO DE MORADA</option>'+
+				'</select></td>'+
 			'<td><input type="text" name="lugarHechos" id="lugarHechos" value="'+lugarHechos+'" size="50"</td>'+
 			'<td><input type="text" name="remite" id="remite" value="'+remite+'" size="5"</td>'+
 			'<td><input type="text" name="imputados" id="imputados" value="'+imputados+'" size="40"</td>'+
