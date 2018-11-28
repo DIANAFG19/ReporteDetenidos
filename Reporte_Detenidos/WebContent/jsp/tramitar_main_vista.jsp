@@ -153,7 +153,7 @@
 	function capturarEnvio(){
 		var nodoContenedorForm = document.getElementById('contenedorForm'); //Nodo DIV
 		nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
-		'<form name = "formulario" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
+		'<form name = "formulario" method="get" onsubmit="return verificarCamposReg()" onreset="anular()">'+
 		'<input type="hidden" name="numero" value="'+document.querySelector('#numero').value+'">'+
 		'<input type="hidden" name="ct" value="'+document.querySelector('#ct').value+'">'+
 		'<input type="hidden" name="carpetaInvestigacion" value="'+document.querySelector('#carpetaInvestigacion').value+'">'+
