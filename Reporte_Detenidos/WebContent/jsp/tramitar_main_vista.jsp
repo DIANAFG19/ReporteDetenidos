@@ -121,13 +121,22 @@
 				'<option value="49">VIOLENCIA FAMILIAR</option>'+
 				'</select></td>'+
 			'<td><input type="text" name="lugarHechos" id="lugarHechos" value="'+lugarHechos+'" size="50"</td>'+
-			'<td><input type="text" name="remite" id="remite" value="'+remite+'" size="5"</td>'+
+			'<td><select name="remite" selected="'+remite+'">'+
+				'<option value="1">S.S.P.</option>'+
+				'<option value="2">P.D.I.</option>'+
+				'<option value="3">OTROS</option>'+					
+			'</select></td>'+
 			'<td><input type="text" name="imputados" id="imputados" value="'+imputados+'" size="40"</td>'+
 			'<td><input type="text" name="sexoM" id="sexoM" value="'+sexoM+'" size="5"</td>'+
 			'<td><input type="text" name="sexoF" id="sexoF" value="'+sexoF+'" size="5"</td>'+
 			'<td><input type="text" name="denunciante" id="denunciante" value="'+denunciante+'" size="30"</td>'+
 			'<td><input type="text" name="descripcionHechos" id="descripcionHechos" value="'+descripcionHechos+'" size="50"</td>'+
-			'<td><input type="text" name="tramite" id="tramite" value="'+tramite+'" size="20"</td>'+
+			'<td><select name="tramite" selected="'+tramite+'">'+
+				'<option value="1">CONTINUADA</option>'+
+				'<option value="2">LIBERTADES</option>'+
+				'<option value="3">INCOMPETENCIAS</option>'+
+				'<option value="3">JUDICIALIZADA</option>'+
+				'</select></td>'+
 			'<td><input type="text" name="antecedentes" id="antecedentes" value="'+antecedentes+'" size="40"</td>'+
 			'<td><input type="text" name="fecha" id="fecha" value="'+fecha+'" size="5"</td>'+
 			'<td><input type="text" name="turno" id="turno" value="'+turno+'" size="5"</td> <td>En edición</td>';
