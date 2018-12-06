@@ -152,25 +152,30 @@
 	}
 	function capturarEnvio(){
 		var nodoContenedorForm = document.getElementById('contenedorForm'); //Nodo DIV
+		
+		var numeroN = document.getElementById('numero').value;
+		var ctN = document.getElementById('ct').value;
+		var carpetaInvestigacionN = document.getElementById('carpetaInvestigacion').value;
+		var horaN = document.getElementById('hora').value;
+		var fechaInicioN = document.getElementById('fechaInicio').value;
+		var delitoN = document.getElementById('delito').value;
+		var lugarHechosN = document.getElementById('lugarHechos').value;
+		var remiteN = document.getElementById('remite').value;
+		var imputadosN = document.getElementById('imputados').value;
+		var sexoMN = document.getElementById('sexoM').value;
+		var sexoFN = document.getElementById('sexoF').value; 
+		var denuncianteN = document.getElementById('denunciante').value;
+		var descripcionHechosN = document.getElementById('descripcionHechos').value;
+		var tramiteN = document.getElementById('tramite').value;
+		var antecedentesN = document.getElementById('antecedentes').value;
+		var fechaN = document.getElementById('fecha').value;
+		var turnoN = document.getElementById('turno').value;
+		
 		nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
-		'<form name = "formulario" method="get" onsubmit="return verificarCamposReg()" onreset="anular()">'+
-		'<input type="hidden" name="numero" value="'+document.querySelector('#numero').value+'">'+
-		'<input type="hidden" name="ct" value="'+document.querySelector('#ct').value+'">'+
-		'<input type="hidden" name="carpetaInvestigacion" value="'+document.querySelector('#carpetaInvestigacion').value+'">'+
-		'<input type="hidden" name="hora" value="'+document.querySelector('#hora').value+'">'+
-		'<input type="hidden" name="fechaInicio" value="'+document.querySelector('#fechaInicio').value+'">'+
-		'<input type="hidden" name="delito" value="'+document.querySelector('#delito').value+'">'+
-		'<input type="hidden" name="lugarHechos" value="'+document.querySelector('#lugarHechos').value+'">'+
-		'<input type="hidden" name="remite" value="'+document.querySelector('#remite').value+'">'+
-		'<input type="hidden" name="imputados" value="'+document.querySelector('#imputados').value+'">'+
-		'<input type="hidden" name="sexoM" value="'+document.querySelector('#sexoM').value+'">'+
-		'<input type="hidden" name="sexoF" value="'+document.querySelector('#sexoF').value+'">'+
-		'<input type="hidden" name="denunciante" value="'+document.querySelector('#denunciante').value+'">'+
-		'<input type="hidden" name="descripcionHechos" value="'+document.querySelector('#descripcionHechos').value+'">'+
-		'<input type="hidden" name="tramite" value="'+document.querySelector('#tramite').value+'">'+
-		'<input type="hidden" name="antecedentes" value="'+document.querySelector('#antecedentes').value+'">'+
-		'<input type="hidden" name="fecha" value="'+document.querySelector('#fecha').value+'">'+
-		'<input type="hidden" name="turno" value="'+document.querySelector('#turno').value+'">'+
+		'<form name = "formulario" method="POST" onsubmit="capturarEnvio()" onreset="anular()">'+
+		
+		'<input type="hidden"'
+		
 		'<input class="boton" type = "submit" value="Aceptar"> <input class="boton" type="reset" value="Cancelar">';
 		document.formulario.submit();
 	}
