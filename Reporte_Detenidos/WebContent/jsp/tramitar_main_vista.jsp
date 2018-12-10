@@ -28,161 +28,7 @@
 <script src="<c:url value="/recursos/tableExport/jspdf/libs/base64.js"/>"></script>
 
 <!-- Modificar campos  -->
-<script type="text/javascript">
-	var editando=false;
-	function transformarEnEditable(nodo){
-		//El nodo recibido es SPAN
-		if (editando == false) {
-			var nodoTd = nodo.parentNode; //Nodo TD
-			var nodoTr = nodoTd.parentNode; //Nodo TR
-			var nodoContenedorForm = document.getElementById('contenedorForm'); //Nodo DIV
-			var nodosEnTr = nodoTr.getElementsByTagName('td');
-			var numero = nodosEnTr[0].textContent; 
-			var ct = nodosEnTr[1].textContent;
-			var carpetaInvestigacion = nodosEnTr[2].textContent; 
-			var hora = nodosEnTr[3].textContent;
-			var fechaInicio = nodosEnTr[4].textContent; 
-			var delito = nodosEnTr[5].textContent;
-			var lugarHechos = nodosEnTr[6].textContent; 
-			var remite = nodosEnTr[7].textContent;
-			var imputados = nodosEnTr[8].textContent;
-			var sexoM = nodosEnTr[9].textContent;
-			var sexoF = nodosEnTr[10].textContent; 
-			var denunciante = nodosEnTr[11].textContent;
-			var descripcionHechos = nodosEnTr[12].textContent;
-			var tramite = nodosEnTr[13].textContent; 
-			var antecedentes = nodosEnTr[14].textContent;
-			var fecha = nodosEnTr[15].textContent; 
-			var turno = nodosEnTr[16].textContent;
-			var nuevoCodigoHtml = '<td><input type="text" name="numero" id="numero" value="'+numero+'" size="5"></td>'+
-			'<td><select name="ct" selected="'+ct+'">'+
-				'<option value="1">GAM-1</option>'+
-				'<option value="2">GAM-2</option>'+
-				'<option value="3">GAM-3</option>'+
-				'<option value="4">GAM-4</option>'+
-				'<option value="5">GAM-5</option>'+
-				'<option value="6">GAM-6</option>'+
-				'<option value="7">GAM-7</option>'+
-				'<option value="8">GAM-8</option>'+
-				'<option value="9">H-5</option>'+						
-				'</select></td>'+
-			'<td><input type="text" name="carpetaInvestigacion" id="carpetaInvestigacion" value="'+carpetaInvestigacion+'" size="10"</td>'+
-			'<td><input type="text" name="hora" id="hora" value="'+hora+'" size="5"</td>'+
-			'<td><input type="text" name="fechaInicio" id="fechaInicio" value="'+fechaInicio+'" size="7"</td>'+
-			'<td><select name="delito" selected="'+delito+'">'+
-				'<option value="1">ABANDONO DE PERSONAS</option>'+
-				'<option value="2">ABORTO</option>'+
-				'<option value="3">ABUSO DE AUTORIDAD</option>'+
-				'<option value="4">ABUSO DE CONFIANZA</option>'+
-				'<option value="5">ALLANAMIENTO DE MORADA</option>'+
-				'<option value="6">ATAQUE A LAS VÍAS DE COMUNICACIÓN</option>'+
-				'<option value="7">COALICIÓN DE SERVIDORES PÚBLICOS</option>'+
-				'<option value="8">COHECHO</option>'+
-				'<option value="9">DAÑO EN PROPIEDAD AJENA</option>'+
-				'<option value="10>DAÑO EN PROPIEDAD AJENA POR TRANSITO VEHICULAR</option>'+
-				'<option value="11">DENUNCIA DE HECHOS</option>'+
-				'<option value="12">DISPARO DE ARMA DE FUEGO</option>'+
-				'<option value="13">ENCUBRIMIENTO</option>'+
-				'<option value="14">ENCUBRIMIENTO POR RECEPTACION</option>'+
-				'<option value="15">EVASIÓN DE PRESOS</option>'+
-				'<option value="16">EXTORSIÓN</option>'+
-				'<option value="17">FALSEDAD EN DECLARACIONES JUD. Y EN INFORMES DADOS A UNA AUT.</option>'+
-				'<option value="18">FALSIFICACIÓN DE DOCUMENTOS EN GENERAL</option>'+
-				'<option value="19">FRAUDE</option>'+
-				'<option value="20">HOMICIDIO DOLOSO POR ARMA BLANCA</option>'+
-				'<option value="21">HOMICIDIO DOLOSO POR D.A.F.</option>'+
-				'<option value="22">HOMICIDIO CULPOSO</option>'+
-				'<option value="23">LESIONES CULPOSAS</option>'+
-				'<option value="24">LESIONES DOLOSAS</option>'+
-				'<option value="25">LESIONES POR ARMA BLANCA</option>'+
-				'<option value="26">LESIONES POR ARMA DE FUEGO</option>'+
-				'<option value="27">OTROS DELITOS</option>'+
-				'<option value="28">PLAGIO O SECUESTRO</option>'+
-				'<option value="29">PORTACIÓN DE ARMAS PROHIBIDAS</option>'+
-				'<option value="30">PRIVACIÓN ILEGAL DE LA LIBERTAD</option>'+
-				'<option value="31">QUEBRANTAMIENTO DE SELLOS</option>'+
-				'<option value="32">RESPONSABILIDAD PROFESIONAL</option>'+
-				'<option value="33">ROBO SIMPLE</option>'+
-				'<option value="34">ROBO A CASA HABITACIÓN CON VIOLENCIA</option>'+
-				'<option value="35">ROBO A CASA HABITACIÓN SIN VIOLENCIA</option>'+
-				'<option value="36">ROBO A CUENTAHABIENTE (BANCO O CAJERO)</option>'+
-				'<option value="37">ROBO A NEGOCIO SIN VIOLENCIA</option>'+
-				'<option value="38">ROBO A NEGOCIO CON VIOLENCIA</option>'+
-				'<option value="39">ROBO A REPARTIDOR</option>'+
-				'<option value="40">ROBO A TRANSEÚNTE</option>'+
-				'<option value="41">ROBO A TRANSPORTISTA</option>'+
-				'<option value="42">ROBO DE ACCESORIOS DE AUTOMÓVIL</option>'+
-				'<option value="43">ROBO DE AUTO C/V</option>'+
-				'<option value="44">ROBO DE AUTO S/V</option>'+
-				'<option value="45">ROBO A BORDO DE TRANSPORTE PUBLICO</option>'+
-				'<option value="46">TENTATIVA DE HOMICIDIO</option>'+
-				'<option value="47">TENTATIVA DE ROBO</option>'+
-				'<option value="48">VIOLACIÓN</option>'+
-				'<option value="49">VIOLENCIA FAMILIAR</option>'+
-				'</select></td>'+
-			'<td><input type="text" name="lugarHechos" id="lugarHechos" value="'+lugarHechos+'" size="50"</td>'+
-			'<td><select name="remite" selected="'+remite+'">'+
-				'<option value="1">S.S.P.</option>'+
-				'<option value="2">P.D.I.</option>'+
-				'<option value="3">OTROS</option>'+					
-			'</select></td>'+
-			'<td><input type="text" name="imputados" id="imputados" value="'+imputados+'" size="40"</td>'+
-			'<td><input type="text" name="sexoM" id="sexoM" value="'+sexoM+'" size="5"</td>'+
-			'<td><input type="text" name="sexoF" id="sexoF" value="'+sexoF+'" size="5"</td>'+
-			'<td><input type="text" name="denunciante" id="denunciante" value="'+denunciante+'" size="30"</td>'+
-			'<td><input type="text" name="descripcionHechos" id="descripcionHechos" value="'+descripcionHechos+'" size="50"</td>'+
-			'<td><select name="tramite" selected="'+tramite+'">'+
-				'<option value="1">CONTINUADA</option>'+
-				'<option value="2">LIBERTADES</option>'+
-				'<option value="3">INCOMPETENCIAS</option>'+
-				'<option value="3">JUDICIALIZADA</option>'+
-				'</select></td>'+
-			'<td><input type="text" name="antecedentes" id="antecedentes" value="'+antecedentes+'" size="40"</td>'+
-			'<td><input type="text" name="fecha" id="fecha" value="'+fecha+'" size="5"</td>'+
-			'<td><input type="text" name="turno" id="turno" value="'+turno+'" size="5"</td> <td>En edición</td>';
-			nodoTr.innerHTML = nuevoCodigoHtml;
-			nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
-			'<form name = "formulario" method="get" onsubmit="capturarEnvio()" onreset="anular()">'+
-			'<input class="boton" type = "submit" value="Aceptar"> <input class="boton" type="reset" value="Cancelar">';
-			editando = "true";
-		}
-		else {
-			alert ('Solo se puede editar una línea. Recargue la página para poder editar otra');
-		}
-	}
-	function capturarEnvio(){
-		var nodoContenedorForm = document.getElementById('contenedorForm'); //Nodo DIV
-		
-		var numeroN = document.getElementById('numero').value;
-		var ctN = document.getElementById('ct').value;
-		var carpetaInvestigacionN = document.getElementById('carpetaInvestigacion').value;
-		var horaN = document.getElementById('hora').value;
-		var fechaInicioN = document.getElementById('fechaInicio').value;
-		var delitoN = document.getElementById('delito').value;
-		var lugarHechosN = document.getElementById('lugarHechos').value;
-		var remiteN = document.getElementById('remite').value;
-		var imputadosN = document.getElementById('imputados').value;
-		var sexoMN = document.getElementById('sexoM').value;
-		var sexoFN = document.getElementById('sexoF').value; 
-		var denuncianteN = document.getElementById('denunciante').value;
-		var descripcionHechosN = document.getElementById('descripcionHechos').value;
-		var tramiteN = document.getElementById('tramite').value;
-		var antecedentesN = document.getElementById('antecedentes').value;
-		var fechaN = document.getElementById('fecha').value;
-		var turnoN = document.getElementById('turno').value;
-		
-		nodoContenedorForm.innerHTML = 'Pulse Aceptar para guardar los cambios o cancelar para anularlos'+
-		'<form name = "formulario" method="POST" onsubmit="capturarEnvio()" onreset="anular()">'+
-		
-		'<input type="hidden"'
-		
-		'<input class="boton" type = "submit" value="Aceptar"> <input class="boton" type="reset" value="Cancelar">';
-		document.formulario.submit();
-	}
-	function anular(){
-		window.location.reload();
-	}
-</script>
+
 
 <meta http-equiv="Content-Type" name="viewport" content="text/html; charset=ISO-8859-1, width=device-width, initial-scale=1">
 <title>Tramitar reporte</title>
@@ -318,12 +164,11 @@
 	       		<td class="text-center"><%if(rs.getString("Fecha")==null){out.println("");} else{out.println(rs.getString("Fecha"));}%></td>
 	       		<td class="text-center"><%if(rs.getString("Turno")==null){out.println("");} else{out.println(rs.getString("Turno"));}%></td>
 	       		<th class="text-center"><a class="btn btn-warning btn-sm" href="editar_main?id=<%=rs.getInt("Id")%>">Dar Trámite</a></th>
-	        	<th class="text-center"><a class="btn btn-warning btn-sm" onclick="transformarEnEditable(this)">Modificar</a></th>
+	        	<th class="text-center"><a class="btn btn-warning btn-sm" href="editar_reporte?id=<%=rs.getInt("Id")%>">Modificar</a></th>
 	        </tr>
 	       	 <%}%> 
            </table></div><br>
            <%} %>
-           <div id="contenedorForm">
 		</div>
 	</div>
  </div>
