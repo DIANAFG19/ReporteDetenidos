@@ -26,7 +26,7 @@ function start(){
 </script>
 
 <meta http-equiv="Content-Type" name="viewport" content="text/html; charset=ISO-8859-1, width=device-width, initial-scale=1">
-<title>Modificando campos de reporte</title>
+<title>Modificando Reporte</title>
 </head>
 <body onload="start()">
 
@@ -44,7 +44,6 @@ function start(){
 	PreparedStatement ps;
 	ResultSet rs;
 	int id = Integer.parseInt(request.getParameter("id"));
-	
 	ps=con.prepareStatement("SELECT reporte.Id, ct.Tipo_CT, reporte.Carpeta_Investigacion, reporte.Hora, reporte.Fecha_Inicio as 'Fecha_Inicio', delito.Tipo_Delito, "
 			+"reporte.Lugar_Hechos, remite.Tipo_Remite, reporte.Total_Imputados, reporte.Probable_Responsable, reporte.M, reporte.F, reporte.Denunciante, " 
 			+"reporte.Descripcion, reporte.Tramite_Id_Tramite, reporte.Tiene_Antecedentes, DATE_FORMAT(reporte.Fecha, '%d/%m/%Y') as Fecha, reporte.Turno "
@@ -56,15 +55,9 @@ function start(){
 			+"AND reporte.Remite_Id_Remite = remite.Id_Remite "
 			+"AND reporte.Tramite_Id_Tramite = 15 ");
 	rs=ps.executeQuery();
-	
 	while(rs.next()){
-	
 %>
-
-
 <div class="container-fluid">
-
-	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -99,32 +92,41 @@ function start(){
     </div><!--/.nav-collapse -->
   </div>
 </nav>
-
-
 <div class="container">	
  <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 	<br>
 	<a class="btn btn-danger positionRight" href="tramitar_main">Cancelar</a>
 	<br><br>
-	
     <form action="" method="POST" class="form-horizontal" role="form">
-	<font size="2"><strong>No. </strong></font>	
-	<input class="campoSombra" id="idReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getInt(1)%>"/>
-	<br><br>
-	<label>Carpeta de Investigación</label>
-	<input style="padding-left:15px" id="carpetaInvestigacion" readonly="readonly" class="form-control textoMayuscula letraNegrita" value="<%=rs.getString(3)%>"/><br>	
-	
-	
-	<div class="form-group" id="grupoFecha">
-		<label for="idDelito" class="col-lg-2 control-label">Delito</label>
+		<font size="2"><strong>No. </strong></font>	
+		<input class="campoSombra" id="idReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getInt(1)%>"/>
+		<font size="2"><strong>Tipo</strong></font>	
+		<input class="campoSombra" id="tipoReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getString(2)%>"/>
+		<br><br>
+		<label>Carpeta de Investigación</label>
+		<input style="padding-left:15px" id="carpetaInvestigacion" readonly="readonly" class="form-control textoMayuscula letraNegrita" value="<%=rs.getString(3)%>"/><br>	
+		<font size="2"><strong>Hora</strong></font>	
+		<input class="campoSombra" id="horaReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getString(4)%>"/>
+		<font size="2"><strong>Fecha de Inicio</strong></font>	
+		<input class="campoSombra" id="fechaInicioReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getDate(5)%>"/>
+		<br><br>
+		<div class="form-group" id="grupoFecha">
+		<label for="idDelito" class="col-lg-1 control-label">Delito</label>
 		<div class="col-lg-10">
-		
-		<input id="idDelito" value="<%=rs.getString(6)%>" class="form-control textoMayuscula" readonly="readonly"/>
+		<input id="idDelito" value="<%=rs.getString(6)%>" class="form-control textoMayuscula"/>
 		</div>
 		<br>
 		</div>
-	
+		<div class="form-group" id="grupoHechos">
+		<label for="idHechos" class="col-lg-2 control-label">Lugar de los Hechos</label>
+		<div class="col-lg-10">
+		<textarea name="Lugar de los Hechos" id="idHechos" maxlength="700" class="form-control textoMayuscula"><%=rs.getString(7)%></textarea>
+		</div>
+		<br>
+		</div>
+		<font size="2"><strong>Tipo de remite</strong></font>	
+		<input class="campoSombra" id="tipoRemite" style="padding-left:20px" readonly="readonly" value="<%=rs.getString(8)%>"/>
 		<div class="form-group">
 		<label for="probableResponsable" class="col-lg-3 control-label">Imputado(s)<br><br><small style="color: red">Nota:<br>Escribir si cada persona tiene ANTECEDENTES, en caso contrario escriba NO.</small></label>
 		<div class="col-lg-9">
@@ -384,23 +386,7 @@ var varIncompetencias = document.getElementById("Incompetencias");
 var fecha = document.getElementById("grupoFecha");
 var turno = document.getElementById("grupoTurno");
 hideCombos();
-
-/*var varAver = document.getElementById("categoriaAveriguacion");
-var varDirecta = document.getElementById("camposDirecta");
-var varRelacionada = document.getElementById("camposRelacionada");    
-var varColaboracion = document.getElementById("colaborativa");
-var varCoordT = document.getElementById("coordTerritorial");
-hideCombosAveriguacion();*/
-
-/*var varListaEsGAM = document.getElementById("esDeGAM"); //---form-group de perteneceGAM
-var varCampoNoGAM = document.getElementById("relacNoGAM"); //----form-group de relacNoGAM
-hideComboesGAM();*/
-
-//var antec = document.getElementById("antecedents");
-//var antecedentes = document.getElementById("anteced");
-//hideAntecedentes();
 </script>
-
 </body>
 </html>
 
@@ -415,9 +401,6 @@ hideComboesGAM();*/
 	if(antec!=null && imputad!=null && tram!=null && fech!=null && turn!=null){
 		ps=con.prepareStatement("UPDATE reporte SET Tiene_Antecedentes='"+antec+"', Probable_Responsable='"+imputad+"', Tramite_Id_Tramite='"+tram+"', Fecha='"+fech+"', Turno='"+turn+"' WHERE Id="+id);
 		ps.executeUpdate();
-		response.sendRedirect("reportes"); 
-		
-		
-		
+		response.sendRedirect("tramitar_main"); 	
 	}
 %>
