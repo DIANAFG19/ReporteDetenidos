@@ -39,7 +39,6 @@ function start(){
 	String clave="";
 	Class.forName(Driver);
 	con=DriverManager.getConnection(url,user,clave);
-	
 	//Listamos los datos de la tabla reporte
 	PreparedStatement ps;
 	ResultSet rs;
@@ -52,7 +51,7 @@ function start(){
 			+"AND reporte.Id = "+id
 			+" AND reporte.Delito_Id_Delito = delito.Id_Delito "
 			+"AND reporte.Tramite_Id_Tramite = tramite.Id_Tramite "
-			+"AND reporte.Remite_Id_Remite = remite.Id_Remite ");
+			+"AND reporte.Remite_Id_Remite = remite.Id_Remite");
 	rs=ps.executeQuery();
 	while(rs.next()){
 %>
@@ -70,14 +69,12 @@ function start(){
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav pull-right">
       	<li><a href="registrar_main">Registrar</a></li>
-        <li class="active"><a><strong>Editando</strong></a></li>
+        <li class="active"><a><strong>Modificando</strong></a></li>
         <li><a href="reportes">Total Reportes</a></li>
-        
         <%
         HttpSession sesion = request.getSession();
 		String usuario;
 		String nivel;
-		
 		//Atributos de Login.jsp
 		if(sesion.getAttribute("user")!=null && sesion.getAttribute("level")=="1"){
 			usuario = sesion.getAttribute("user").toString();
@@ -100,11 +97,24 @@ function start(){
     <form action="" method="POST" class="form-horizontal" role="form">
 		<font size="2"><strong>No. </strong></font>	
 		<input class="campoSombra" id="idReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getInt(1)%>"/>
-		<font size="2"><strong>Tipo</strong></font>	
-		<input class="campoSombra" id="tipoReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getString(2)%>"/>
 		<br><br>
+		<label>Tipo </label>	
+		<select id="ct" class="form-control" style="width:15em;">
+			<option value="0" class="letraNegrita"><%=rs.getString(2)%></option>
+			<option value="1">GAM-1</option>
+			<option value="2">GAM-2</option>
+			<option value="3">GAM-3</option>
+			<option value="4">GAM-4</option>
+			<option value="5">GAM-5</option>
+			<option value="6">GAM-6</option>
+			<option value="7">GAM-7</option>
+			<option value="8">GAM-8</option>
+			<option value="9">H-5</option>
+		</select>
+		<br>
+		</div>
 		<label>Carpeta de Investigación</label>
-		<input style="padding-left:15px" id="carpetaInvestigacion" readonly="readonly" class="form-control textoMayuscula letraNegrita" value="<%=rs.getString(3)%>"/><br>	
+		<input style="width:40em;" style="padding-left:10px" id="carpetaInvestigacion" readonly="readonly" class="form-control textoMayuscula letraNegrita" value="<%=rs.getString(3)%>"/><br>	
 		<font size="2"><strong>Hora</strong></font>	
 		<input class="campoSombra" id="horaReporte" style="padding-left:20px" readonly="readonly" value="<%=rs.getString(4)%>"/>
 		<font size="2"><strong>Fecha de Inicio</strong></font>	
@@ -113,23 +123,82 @@ function start(){
 		<div class="form-group" id="grupoFecha">
 		<label for="idDelito" class="col-lg-1 control-label">Delito</label>
 		<div class="col-lg-10">
-		<input id="idDelito" value="<%=rs.getString(6)%>" class="form-control textoMayuscula"/>
+		<select id="ct" class="form-control" style="width:15em;">
+			<option value="0" class="letraNegrita"><%=rs.getString(6)%></option>
+			<option value="1">ABANDONO DE PERSONAS</option>
+			<option value="2">ABORTO</option>
+			<option value="3">ABUSO DE AUTORIDAD</option>
+			<option value="4">ABUSO DE CONFIANZA</option>
+			<option value="5">ALLANAMIENTO DE MORADA</option>
+			<option value="6">ATAQUE A LAS VÍAS DE COMUNICACIÓN</option>
+			<option value="7">COALICIÓN DE SERVIDORES PÚBLICOS</option>
+			<option value="8">COHECHO</option>
+			<option value="9">DAÑO EN PROPIEDAD AJENA</option>
+			<option value="10">DAÑO EN PROPIEDAD AJENA POR TRANSITO VEHICULAR</option>
+			<option value="11">DELITOS CONTRA LA SALUD</option>
+			<option value="12">DENUNCIA DE HECHOS</option>
+			<option value="13">DISPARO DE ARMA DE FUEGO</option>
+			<option value="14">ENCUBRIMIENTO</option>
+			<option value="15">ENCUBRIMIENTO POR RECEPTACION</option>
+			<option value="16">EVASIÓN DE PRESOS</option>
+			<option value="17">EXTORSIÓN</option>
+			<option value="18">FALSEDAD EN DECLARACIONES JUD. Y EN INFORMES DADOS A UNA AUT.</option>
+			<option value="19">FALSIFICACIÓN DE DOCUMENTOS EN GENERAL</option>
+			<option value="20">FRAUDE</option>
+			<option value="21">HOMICIDIO DOLOSO POR ARMA BLANCA</option>
+			<option value="22">HOMICIDIO DOLOSO POR D.A.F.</option>
+			<option value="23">HOMICIDIO CULPOSO</option>
+			<option value="24">HOMICIDIO CULPOSO POR T.V.</option>
+			<option value="25">LESIONES CULPOSAS</option>
+			<option value="26">LESIONES CULPOSAS POR T.V.</option>
+			<option value="27">LESIONES DOLOSAS</option>
+			<option value="28">LESIONES POR ARMA BLANCA</option>
+			<option value="29">LESIONES POR ARMA DE FUEGO</option>
+			<option value="30">OTROS DELITOS</option>
+			<option value="31">PLAGIO O SECUESTRO</option>
+			<option value="32">PORTACIÓN DE ARMAS PROHIBIDAS</option>
+			<option value="33">PRIVACIÓN ILEGAL DE LA LIBERTAD</option>
+			<option value="34">QUEBRANTAMIENTO DE SELLOS</option>
+			<option value="35">RESPONSABILIDAD PROFESIONAL</option>
+			<option value="36">ROBO SIMPLE</option>
+			<option value="37">ROBO A CASA HABITACIÓN CON VIOLENCIA</option>
+			<option value="38">ROBO A CASA HABITACIÓN SIN VIOLENCIA</option>
+			<option value="39">ROBO A CUENTAHABIENTE (BANCO O CAJERO)</option>
+			<option value="40">ROBO A NEGOCIO SIN VIOLENCIA</option>
+			<option value="41">ROBO A NEGOCIO CON VIOLENCIA</option>
+			<option value="42">ROBO A REPARTIDOR</option>
+			<option value="43">ROBO A TRANSEUNTE</option>
+			<option value="44">ROBO A TRANSPORTISTA</option>
+			<option value="45">ROBO DE ACCESORIOS DE AUTOMÓVIL</option>
+			<option value="46">ROBO DE AUTO C/V</option>
+			<option value="47">ROBO DE AUTO S/V</option>
+			<option value="48">ROBO A BORDO DE TRANSPORTE PUBLICO</option>
+			<option value="49">TENTATIVA DE HOMICIDIO</option>
+			<option value="50">TENTATIVA DE ROBO</option>
+			<option value="51">VIOLACIÓN</option>
+			<option value="52">VIOLENCIA FAMILIAR</option>
+		</select>
 		</div>
-		<br>
+		<br><br>
 		</div>
 		<div class="form-group" id="grupoHechos">
 		<label for="idHechos" class="col-lg-2 control-label">Lugar de los Hechos</label>
 		<div class="col-lg-10">
-		<textarea name="Lugar de los Hechos" id="idHechos" maxlength="700" class="form-control textoMayuscula"><%=rs.getString(7)%></textarea>
+		<textarea name="Lugar de los Hechos" id="idHechos" maxlength="1500" rows="5" class="form-control textoMayuscula"><%=rs.getString(7)%></textarea>
 		</div>
+		<br><br>
+		</div>
+		<label>Tipo de Remite</label>	
+		<select id="ct" class="form-control" style="width:15em;">
+			<option value="0" class="letraNegrita"><%=rs.getString(8)%></option>
+			<option value="1">S.S.P.</option>
+			<option value="2">P.D.I.</option>
+			<option value="3">OTROS</option>
+		</select>
 		<br>
-		</div>
-		<font size="2"><strong>Tipo de remite</strong></font>	
-		<input class="campoSombra" id="tipoRemite" style="padding-left:20px" readonly="readonly" value="<%=rs.getString(8)%>"/>
 		<div class="form-group">
 		<label for="probableResponsable" class="col-lg-3 control-label">Imputado(s)<br><br><small style="color: red">Nota:<br>Escribir si cada persona tiene ANTECEDENTES, en caso contrario escriba NO.</small></label>
 		<div class="col-lg-9">
-
 	 <input style="padding-left:15px" placeholder="No." value="<%=rs.getInt(9)%>" readonly class="campoSombra" id="noImputados"/>
 	 <br><br>	
 	<textarea name="losImputados" id="probableResponsable" placeholder="Datos de (los) imputado(s)" maxlength="700" class="form-control textoMayuscula" onchange="mayusculas()" rows="5" readonly="readonly"><%=rs.getString(10)%></textarea>
@@ -141,71 +210,32 @@ function start(){
 
 <script type="text/javascript">
 function genList(){
-//	clean();
 	var	num = document.getElementById("noImputados").value;
 	list = document.getElementById("input_list");
 	
-	 for(var i = 1; i <= num; i++){ 
-		 /*var elem = list.appendChild(document.createElement("input"));
-		 var elem2 = list.appendChild(document.createElement("input"));
-		 var elem3 = list.appendChild(document.createElement("input"));*/
-		 
-		 var elem4 = list.appendChild(document.createElement("input"));
-		 
-	 /*elem.setAttribute("type","text");
-	 elem.setAttribute("placeholder"," Nombre "+i);
-	 elem.setAttribute("maxlength",45);
-	 elem.setAttribute("onchange","concatLista()");
-	 elem.setAttribute("required","required");
-	 elem.id = "nombreTxt"+i;
-	 elem.className = "campo3 textoMayuscula";
-	 
-	 
-	 elem2.setAttribute("type","text");
-	 elem2.setAttribute("type","number");
-	 elem2.setAttribute("min",1);
-	 elem2.setAttribute("max",100);
-	 elem2.setAttribute("onchange","concatLista()");
-	 elem2.setAttribute("required","required");
-	 elem2.setAttribute("placeholder"," Edad (#)");
-	 elem2.id = "edadTxt"+i;
-	 elem2.className = "campo2 textoMayuscula";
-	 
-	 elem3.setAttribute("type","text");
-	 elem3.setAttribute("placeholder","M/F");
-	 elem3.setAttribute("maxlength",1);
-	 elem3.setAttribute("onchange","concatLista()");
-	 elem3.setAttribute("required","required");
-	 elem3.setAttribute("pattern","[M,F,m,f]{1}");
-	 elem3.setAttribute("title","Masculino o Femenino");
-	 elem3.id = "generoTxt"+i;
-	 elem3.className = "campo4 textoMayuscula";*/
-	 
-	 elem4.setAttribute("type","text");
-	 elem4.setAttribute("placeholder","Antecedentes de la persona "+i);
-	 elem4.setAttribute("maxlength",140);
-	 elem4.setAttribute("onchange","concatLista()");
-	 elem4.setAttribute("required","required");
-	 elem4.setAttribute("style","padding-left:10px");
-	 
-	 //elem4.setAttribute("title","Mencionar si tiene, en caso contrario escriba 'NO'");
-	 elem4.id = "antecedentesTxt"+i;
-	 elem4.className = "campo3 textoMayuscula";
-	 
-	 list.appendChild(document.createElement("br"));
-	 list.appendChild(document.createElement("br"));
-	 }	
-	}
-	
-	
-	function fechaDeHoy(){
+	for(var i = 1; i <= num; i++){ 
+		var elem4 = list.appendChild(document.createElement("input"));
+		elem4.setAttribute("type","text");
+	 	elem4.setAttribute("placeholder","Antecedentes de la persona "+i);
+	 	elem4.setAttribute("maxlength",140);
+	 	elem4.setAttribute("onchange","concatLista()");
+	 	elem4.setAttribute("required","required");
+		elem4.setAttribute("style","padding-left:10px");
 
+	 	elem4.id = "antecedentesTxt"+i;
+	 	elem4.className = "campo3 textoMayuscula";
+	 	
+	 	list.appendChild(document.createElement("br"));
+	 	list.appendChild(document.createElement("br"));
+	 }	
+}
+
+	function fechaDeHoy(){
 		//Se obtiene el día, mes y año actual  
 		var fHoy = new Date();
 		var dd = fHoy.getDate();
 		var mm = fHoy.getMonth()+1; //Se suma 1 porque Enero es el mes 0
 		var yyyy = fHoy.getFullYear();
-		
 		//Para los días y meses menores a 10, se agrega 0 para mantener el formato de fecha
 		if(dd<10){
 	        dd='0'+dd
@@ -215,67 +245,28 @@ function genList(){
 	    } 
 	    //Asignamos el formato a la variable
 	    fHoy = yyyy+'-'+mm+'-'+dd;
-	    
 	    //Se obtiene el id "fecha" del formulario y le asignamos la fecha actual a los atributos 'max' y 'value' 
-	    //document.getElementById("fechaInicio").value = fHoy;
-	    //document.getElementById("fechaInicio").setAttribute("max", fHoy);
 	    document.getElementById("fecha").setAttribute("max", fHoy);
 	}
-	
-/*function clean(){
-	list = document.getElementById("input_list");
-	 while(list.childNodes.length){
-	 list.removeChild(list.childNodes[list.childNodes.length - 1]);
-	 }
-	}*/
-	
+
 function concatLista(){
 	var num = document.getElementById("noImputados").value;
-	//alert(num);
-	/*var nombres;
-	var edades;
-	var generos; 
-	var concatenado = [];
-	var count = 0;
-	var count2 = 0;*/
-	
 	var antecedentes;
 	var concatenadoAnteced = [];
 	for(var i = 1; i <= num; i++){
-		/*nombres = document.getElementById("nombreTxt"+i).value.toUpperCase();		
-		edades = document.getElementById("edadTxt"+i).value;
-		generos = document.getElementById("generoTxt"+i).value.toUpperCase();*/
 		antecedentes = document.getElementById("antecedentesTxt"+i).value.toUpperCase();	
-		
-		//concatenado[i-1] = (" "+i+".- "+nombres +", "+ edades +" Años");	
 		concatenadoAnteced[i-1] = (" "+i+".- "+antecedentes);		
-		
-		/*if(generos=="M"||generos=="m"){
-			++count;			
-		}//alert(count);
-		
-		if(generos=="F"||generos=="f"){
-			++count2;			
-		}//alert(count2);*/
-		
-	}//alert(concatenado);
-	/*document.getElementById("masculino").value = count;
-	document.getElementById("femenino").value = count2;
-	document.getElementById("probableResponsable").value = concatenado;*/
+	}
 	document.getElementById("tieneAntecedentes").value = concatenadoAnteced;	
 }
 </script>
-
-		
 		<div class="form-group">
 		<label for="tieneAntecedentes" class="col-lg-2 control-label">Antecedentes de Imputado(s)</label>
 		<div class="col-lg-10">
 		<textarea readonly="readonly" id="tieneAntecedentes" placeholder="Antecedentes capturados" maxlength="1500" class="form-control textoMayuscula" onchange="mayusculas()" rows="5" name="losAntecedentes"></textarea>
 		</div>
 		</div> 
-		
 		<br>
-		
 		<div class="form-group">
 		<label for="listasTramite" class="col-lg-2 control-label">Trámite</label>
 		<div class="col-lg-10">
@@ -314,17 +305,14 @@ function concatLista(){
             </select>
             </div>
             </div>
-		</div>
-				
+		</div>	
 		<div class="form-group" id="grupoFecha">
 		<label for="fecha" class="col-lg-2 control-label">Fecha</label>
 		<div class="col-lg-10">
-		
 		<input type="date" id="fecha" min="<%=rs.getString(5)%>" required="true" class="form-control textoMayuscula" name="laFecha"/>
 		</div>
 		<br>
 		</div>
-	
 		<div class="form-group" id="grupoTurno">
 		<input type="hidden" id="turno" name="elTurno"/>
 		<label for="idTurnoFK" class="col-lg-2 control-label">Turno</label>
@@ -338,7 +326,6 @@ function concatLista(){
 		</div>		
 		</div>
 	<br><br>
-	
 		<center><button onclick="return verificarCamposReg()" class="btn btn-warning">Guardar Cambios</button></center>
 	</form>
 	<%}%>
