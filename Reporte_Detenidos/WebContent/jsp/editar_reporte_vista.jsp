@@ -52,8 +52,7 @@ function start(){
 			+"AND reporte.Id = "+id
 			+" AND reporte.Delito_Id_Delito = delito.Id_Delito "
 			+"AND reporte.Tramite_Id_Tramite = tramite.Id_Tramite "
-			+"AND reporte.Remite_Id_Remite = remite.Id_Remite "
-			+"AND reporte.Tramite_Id_Tramite = 15 ");
+			+"AND reporte.Remite_Id_Remite = remite.Id_Remite ");
 	rs=ps.executeQuery();
 	while(rs.next()){
 %>

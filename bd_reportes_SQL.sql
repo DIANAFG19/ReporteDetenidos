@@ -187,6 +187,7 @@ SELECT*FROM CT;
 SELECT*FROM Delito;
 SELECT*FROM Tramite;
 SELECT*FROM Remite;
+SELECT * FROM reporte;
 
 -- TOTAL DE REPORTES
 SELECT reporte.Id, ct.Tipo_CT, reporte.Carpeta_Investigacion, reporte.Hora, reporte.Fecha_Inicio as 'Fecha_Inicio', delito.Tipo_Delito, 
@@ -199,4 +200,4 @@ AND reporte.Tramite_Id_Tramite = tramite.Id_Tramite
 AND reporte.Remite_Id_Remite = remite.Id_Remite
 ORDER BY ct.Tipo_CT asc, reporte.Id asc;
 
-SELECT * FROM reporte;
+

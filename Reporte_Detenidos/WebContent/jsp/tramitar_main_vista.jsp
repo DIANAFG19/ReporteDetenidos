@@ -56,9 +56,8 @@
 			+"AND reporte.Delito_Id_Delito = delito.Id_Delito "
 			+"AND reporte.Tramite_Id_Tramite = tramite.Id_Tramite "
 			+"AND reporte.Remite_Id_Remite = remite.Id_Remite "
-			+"AND reporte.Tramite_Id_Tramite = 15 ORDER BY ct.Tipo_CT asc, reporte.Id asc");
+			+"ORDER BY ct.Tipo_CT asc, reporte.Id asc");
 	rs=ps.executeQuery();
-	
 %>
 
 <div class="container-fluid">
