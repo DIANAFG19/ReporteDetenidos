@@ -202,12 +202,10 @@ function start(){
 	 <input style="padding-left:15px" placeholder="No." value="<%=rs.getInt(9)%>" readonly class="campoSombra" id="noImputados"/>
 	 <br><br>	
 	<textarea name="losImputados" id="probableResponsable" placeholder="Datos de (los) imputado(s)" maxlength="700" class="form-control textoMayuscula" onchange="mayusculas()" rows="5" readonly="readonly"><%=rs.getString(10)%></textarea>
-	
 	<br>
 	<div id="input_list"></div>
 		</div>
 		</div>
-
 <script type="text/javascript">
 function genList(){
 	var	num = document.getElementById("noImputados").value;
@@ -266,7 +264,6 @@ function concatLista(){
 		<textarea readonly="readonly" id="tieneAntecedentes" placeholder="Antecedentes capturados" maxlength="1500" class="form-control textoMayuscula" onchange="mayusculas()" rows="5" name="losAntecedentes"></textarea>
 		</div>
 		</div> 
-		<br>
 		<div class="form-group">
 		<label for="listasTramite" class="col-lg-2 control-label">Trámite</label>
 		<div class="col-lg-10">
@@ -351,20 +348,11 @@ $(window).scroll(function() {
 	  }
 	});
 
-/*$('#idDelitoFK').select2({
-	theme: 'bootstrap'
-});*/	
-
 $("#categoriaTramite").click(function() {
     $('#Libertades').prop('selectedIndex', 0);
     $('#Incompetencias').prop('selectedIndex', 0);
 });  
 
-//Año Actual
-/*var dia = new Date();		
-var anhioActual = dia.getFullYear();		
-document.getElementById("anhioD").setAttribute("max", anhioActual);
-document.getElementById("anhioR").setAttribute("max", anhioActual);*/
 
 var varCT = document.getElementById("categoriaTramite");
 var varLibertades = document.getElementById("Libertades");
